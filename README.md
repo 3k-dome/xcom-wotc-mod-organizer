@@ -1,1 +1,1 @@
-# xcom-wotc-sort-mods
+# xcom-wotc-mod-organizer
