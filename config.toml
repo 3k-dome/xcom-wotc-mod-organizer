@@ -1,0 +1,12 @@
+[steam]
+
+workshop_url = "https://steamcommunity.com/sharedfiles/filedetails"
+
+[wotc]
+
+game_path = 'D:\Games\SteamLibrary\steamapps\common\XCOM 2\XCom2-WarOfTheChosen'
+workshop_path = 'D:\Games\SteamLibrary\steamapps\workshop\content\268500'
+
+[cache]
+
+path = 'D:\Repositories\xcom-wotc-mod-organizer\cache'
