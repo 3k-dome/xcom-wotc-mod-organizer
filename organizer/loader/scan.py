@@ -1,8 +1,23 @@
 import glob
+import re
 from pathlib import Path
 from typing import Iterable
 
 from organizer.types import Mod
+
+MOD_NAME_RE = r'^[^;]*?"([^"]+)"'
+
+
+def gather_active(ini_path: str) -> set[str]:
+    """Returns a `set` of all active `Mod`-names.
+
+    :param ini_path: The path to the games mod ini.
+    :return: A `set` of all active `Mod`-names.
+    """
+    with open(ini_path) as ini:
+        content = ini.read()
+
+    return set(re.findall(MOD_NAME_RE, content, re.MULTILINE))
 
 
 def gather_paths(path: str) -> Iterable[Path]:
