@@ -19,8 +19,8 @@ class Mod:
     title: str = field(default="")
     author: str = field(default="")
     active: bool = field(default=False)
-    notes: list[str] = field(init=False, default_factory=list)
-    modified: float = field(init=False, default_factory=float)
+    notes: list[str] = field(default_factory=list)
+    modified: float = field(default_factory=float)
 
     def update_modified(self) -> None:
         self.modified = Path(self.path).parent.stat().st_mtime
