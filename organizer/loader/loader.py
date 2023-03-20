@@ -26,11 +26,11 @@ class ModLoader:
         :return: All currently installed `Mods`.
         """
         installed_paths = [*gather_paths(self.workshop)]
-        installed_ids = {path.parent.stem for path in installed_paths}
+        installed_ids = [path.parent.stem for path in installed_paths]
         cached_ids = self.local.keys()
 
         mods: list[Mod] = []
-        mods.extend(self.local.get_mods(cached_ids & installed_ids))
+        mods.extend(self.local.get_mods(cached_ids & set(installed_ids)))
         mods.extend([convert(path) for id, path in zip(installed_ids, installed_paths) if id not in cached_ids])
         _ = [mod.update_modified() for mod in mods]
 
