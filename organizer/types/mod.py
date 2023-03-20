@@ -1,9 +1,10 @@
 import os
 import random
 import re
-from dataclasses import dataclass, field
-from pathlib import Path
 import time
+from dataclasses import dataclass, field
+from datetime import datetime
+from pathlib import Path
 
 import requests
 
@@ -20,10 +21,10 @@ class Mod:
     author: str = field(default="")
     active: bool = field(default=False)
     notes: list[str] = field(default_factory=list)
-    modified: float = field(default_factory=float)
+    modified: str = field(default_factory=str)
 
     def update_modified(self) -> None:
-        self.modified = Path(self.path).parent.stat().st_mtime
+        self.modified = str(datetime.fromtimestamp(Path(self.path).parent.stat().st_mtime))
 
     def __post_init__(self) -> None:
         if not self.title or not self.author:
