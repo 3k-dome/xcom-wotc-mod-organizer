@@ -2,7 +2,7 @@ import json
 from dataclasses import asdict, is_dataclass
 from typing import Any, cast
 
-from organizer import Category, Mod
+from ..types import Category, Mod
 
 
 class DataclassJSONEncoder(json.JSONEncoder):
